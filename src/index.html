@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Converter</title>
+  </head>
+  <body>
+    <div class="container">
+      <main class="main">
+        <h1 class="title">Text Converter</h1>
+
+        <div class="controls">
+          <button class="convert-button" id="toTable">Convert to Table</button>
+          <button class="convert-button" id="toRows">Convert to Rows</button>
+        </div>
+        <div class="text-field">
+          <textarea
+            class="textaream textaream--input"
+            name="input"
+            id="input"
+            cols="60"
+            rows="20"
+          ></textarea>
+          <textarea
+            class="textaream textaream--output"
+            name="output"
+            id="output"
+            cols="60"
+            rows="20"
+          ></textarea>
+        </div>
+        <table id="table" class="table">
+          <thead>
+            <th class="col0">№</th>
+            <th class="col1">Номер</th>
+            <th class="col2"></th>
+            <th class="col3">ФИО</th>
+            <th class="col4">Телефон</th>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </main>
+    </div>
+  </body>
+</html>
