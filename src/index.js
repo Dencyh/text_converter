@@ -7,10 +7,6 @@ const toRowsButton = document.querySelector("#toRows");
 //const table = document.querySelector("#table");
 const tbody = document.querySelector("#tbody");
 
-input.value = ` а664кх797 х128еу797, а658кн797, р871ем797
-
-`;
-
 toTableButton.addEventListener("click", (e) => {
   try {
     let raw = input.value;
@@ -18,7 +14,6 @@ toTableButton.addEventListener("click", (e) => {
     let string = raw.replace(/\,/gm, " ").replace(/\s{2,}/gm, " ");
 
     if (string == undefined) return;
-    console.log(string);
 
     let names = string.match(
       /[А-ЯA-Z]{2,}\s[А-ЯA-Z]{2,}(\s*[А-Я]{2,})*(\s[А-Я]{2,})*/gim
@@ -33,7 +28,6 @@ toTableButton.addEventListener("click", (e) => {
       .map((item) => {
         return item.replace(/(\s|\+)/g, "");
       });
-    console.log(phones);
 
     names.forEach((name, index) => {
       tbody.innerHTML += `<tr>
@@ -46,7 +40,7 @@ toTableButton.addEventListener("click", (e) => {
     });
   } catch (e) {
     console.error(e);
-    output.value = "Ошибка, придется делать по старинке";
+    output.value = "Error :(";
   }
 });
 
