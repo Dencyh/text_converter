@@ -20,25 +20,30 @@ toTableButton.addEventListener("click", (e) => {
     );
 
     let numbers = string.match(/([А-ЯA-Z]{1}[0-9]{3}[А-ЯA-Z]{2}[0-9]{0,3})/gim);
+    if (!numbers) {
+      numbers = [];
+    }
 
     /* Phone numbers */
 
-    let phones = string.match(
-      /(\+7|7|8)*\d{3}\s*\d{3}\s*\d{2}\s*\d{2}(?=($|\s|[А-Я]))/gim
-    );
+    let phones = string
+      .replace(/\-|\(|\)|\s/gi, "")
+      .match(
+        /(\+7|7|8)*\d{3}(\s|\-|\()*\d{3}\s*\d{2}\s*\d{2}(?=($|\s|[А-Я]))/gim
+      );
+    console.log(phones);
 
     if (phones) {
-      phones.map((item) => {
-        return item.replace(/(\s|\+)/g, "");
+      phones = phones.map((item) => {
+        return item.replace(/(\s|\+)/gm, "");
       });
-      phones = [];
     } else {
       phones = [];
     }
 
     names.forEach((name, index) => {
       tbody.innerHTML += `<tr>
-    <td class="col0">${index}</td>
+    <td class="col0">${index + 1}</td>
     <td class="col1">${numbers[index]}</td>
     <td class="col2"></td>
     <td class="col3">${name}</td>

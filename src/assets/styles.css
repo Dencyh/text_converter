@@ -34,8 +34,9 @@ body {
 }
 
 .col0 {
-  width: 15px;
+  width: 26px;
   text-align: center;
+  user-select: none;
 }
 
 .col1 {
